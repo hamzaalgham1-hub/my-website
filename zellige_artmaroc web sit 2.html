@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zellige Art Maroc — Artisanat Authentique de Fès</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cobalt:#1B3A6B;--cobalt-light:#2E5FA3;
+  --gold:#C8960A;--gold-light:#F0B429;
+  --ivory:#FAF7F2;--ivory-dark:#F0EBE1;
+  --emerald:#1A6B45;--terra:#C45D2A;
+  --white:#FFFFFF;--text-dark:#1A1A1A;
+  --text-mid:#4A4A4A;--text-muted:#7A7A7A;--border:#E0D8CC;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,58,107,0.97);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid rgba(200,150,10,0.3)}
+.nav-brand{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold-light);text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-cta{background:var(--gold);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s}
+.nav-cta:hover{background:var(--gold-light)}
+
+.hero{min-height:100vh;background:linear-gradient(160deg,var(--cobalt) 0%,#0D2447 60%,#1A3A5C 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;opacity:0.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,5 55,20 55,45 30,58 5,45 5,20' fill='none' stroke='%23C8960A' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23C8960A' opacity='0.5'/%3E%3C/svg%3E");background-size:60px 60px}
+.hero-inner{position:relative;z-index:1;max-width:700px}
+.hero-badge{display:inline-block;border:1px solid rgba(200,150,10,0.5);color:var(--gold-light);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.35rem 1.2rem;border-radius:2px;margin-bottom:1.5rem}
+.hero h1{font-family:'Amiri',serif;font-size:clamp(2.8rem,7vw,5rem);color:var(--white);line-height:1.1;margin-bottom:0.5rem}
+.hero h1 span{color:var(--gold-light)}
+.hero-sub{font-family:'Amiri',serif;font-size:1.4rem;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-style:italic}
+.hero-desc{color:rgba(255,255,255,0.65);font-size:1rem;max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#fff;padding:0.85rem 2rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{border:1px solid rgba(255,255,255,0.35);color:rgba(255,255,255,0.85);padding:0.85rem 2rem;border-radius:4px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,color 0.2s}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light)}
+
+.pattern-band{background:var(--cobalt);overflow:hidden;height:48px;display:flex;align-items:center}
+.pattern-band-inner{display:flex;animation:scrollband 22s linear infinite;white-space:nowrap}
+@keyframes scrollband{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pattern-band-item{color:rgba(200,150,10,0.65);font-size:1.2rem;padding:0 1.5rem;letter-spacing:0.25em;font-family:'Amiri',serif}
+
+section{padding:5rem 2rem}
+.section-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--cobalt);line-height:1.2;margin-bottom:1rem}
+.section-title-white{color:var(--white)}
+.section-desc{color:var(--text-mid);font-size:1.05rem;max-width:560px;line-height:1.75}
+.max-w{max-width:1100px;margin:0 auto}
+
+/* PRODUCTS */
+.products-bg{background:var(--white)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.product-card{background:var(--ivory);border-radius:2px;overflow:hidden;border:1px solid var(--border);transition:transform 0.25s,box-shadow 0.25s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,58,107,0.12)}
+.product-img{width:100%;height:260px;object-fit:cover;display:block}
+.product-body{padding:1.25rem 1.5rem 1.5rem}
+.product-category{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem}
+.product-name{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--cobalt);margin-bottom:0.5rem}
+.product-desc{color:var(--text-mid);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.product-price-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.product-price{font-size:1.05rem;font-weight:700;color:var(--cobalt)}
+.product-price small{font-size:0.75rem;color:var(--text-muted);font-weight:400;display:block;margin-top:2px}
+.btn-order{background:var(--cobalt);color:#fff;padding:0.5rem 1.1rem;border-radius:3px;text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.05em;transition:background 0.2s;display:inline-block}
+.btn-order:hover{background:var(--cobalt-light)}
+
+/* GALLERY */
+.gallery-bg{background:var(--cobalt)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:6px;margin-top:3rem;border-radius:4px;overflow:hidden}
+.gallery-item{overflow:hidden;position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.45s ease;display:block}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item.wide{grid-column:span 2}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(27,58,107,0.55) 0%,transparent 50%);opacity:0;transition:opacity 0.3s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+
+/* ORDER */
+.order-bg{background:var(--ivory-dark)}
+.order-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.order-info h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cobalt);margin-bottom:1rem}
+.order-info p{color:var(--text-mid);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem}
+.info-list{list-style:none}
+.info-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--text-mid);margin-bottom:0.75rem}
+.info-list li::before{content:"◆";color:var(--gold);font-size:0.6rem;margin-top:0.35rem;flex-shrink:0}
+.price-info{background:var(--white);border-left:3px solid var(--gold);padding:1rem 1.25rem;border-radius:0 3px 3px 0;font-size:0.88rem;color:var(--text-mid);margin-top:1.5rem;line-height:1.9}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:2rem}
+.form-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--cobalt);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--gold)}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--text-mid);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.7rem 0.9rem;border:1px solid var(--border);border-radius:3px;font-family:'Inter',sans-serif;font-size:0.92rem;color:var(--text-dark);background:var(--ivory);outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cobalt);background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{width:100%;background:var(--cobalt);color:#fff;border:none;padding:0.9rem;border-radius:3px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:0.5rem}
+.form-submit:hover{background:var(--cobalt-light)}
+.form-note{text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem}
+.success-msg{display:none;background:#f0fdf4;border:1px solid #86efac;color:#166534;padding:1rem;border-radius:4px;font-size:0.9rem;text-align:center;margin-top:1rem}
+
+/* LOCATION */
+.location-bg{background:var(--white)}
+.location-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.location-map iframe{width:100%;height:340px;display:block;border:none;border-radius:4px}
+.location-details h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--cobalt);margin-bottom:1.25rem}
+.location-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.location-icon{width:42px;height:42px;background:var(--cobalt);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;color:var(--gold-light)}
+.location-item-text{flex:1}
+.location-item-text strong{display:block;font-size:0.8rem;font-weight:700;color:var(--text-dark);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.2rem}
+.location-item-text span{color:var(--text-mid);font-size:0.95rem}
+.location-item-text a{color:var(--cobalt-light);text-decoration:none}
+.location-item-text a:hover{color:var(--gold)}
+.social-buttons{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.btn-social{display:inline-flex;align-items:center;gap:0.6rem;padding:0.75rem 1.5rem;border-radius:4px;text-decoration:none;font-size:0.88rem;font-weight:600;transition:opacity 0.2s,transform 0.15s}
+.btn-social:hover{opacity:0.88;transform:translateY(-1px)}
+.btn-instagram{background:linear-gradient(135deg,#E1306C,#C13584,#833AB4);color:#fff}
+.btn-whatsapp{background:#25D366;color:#fff}
+.btn-social svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+
+footer{background:#0D1E38;padding:3rem 2rem 2rem;text-align:center;color:rgba(255,255,255,0.5)}
+.footer-brand{font-family:'Amiri',serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:0.5rem;display:block}
+.footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2rem;font-style:italic}
+.footer-divider{height:1px;background:rgba(255,255,255,0.08);margin:1.5rem 0}
+.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.3)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .order-layout{grid-template-columns:1fr;gap:2rem}
+  .location-layout{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,200px)}
+  .gallery-item.wide{grid-column:span 1}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .products-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-brand">✦ Zellige Art Maroc</a>
+  <ul class="nav-links">
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#commander">Commander</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#commander" class="nav-cta">Commander</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Artisanat Authentique · Fès, Maroc</div>
+    <h1>Zellige <span>Art</span><br>Maroc</h1>
+    <div class="hero-sub">زليج مغربي أصيل من فاس</div>
+    <p class="hero-desc">Créations uniques en zellige marocain fait main — tables mosaïque, fontaines, escaliers et décoration architecturale. Chaque pièce raconte l'histoire de Fès.</p>
+    <div class="hero-actions">
+      <a href="#produits" class="btn-primary">Découvrir nos créations →</a>
+      <a href="#commander" class="btn-outline">Commander sur mesure</a>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="pattern-band">
+  <div class="pattern-band-inner">
+    <span class="pattern-band-item">◆ Tables Mosaïque</span>
+    <span class="pattern-band-item">◆ Fontaines & S9aya</span>
+    <span class="pattern-band-item">◆ Escaliers Zellige</span>
+    <span class="pattern-band-item">◆ Revêtements Muraux</span>
+    <span class="pattern-band-item">◆ Sur Mesure</span>
+    <span class="pattern-band-item">◆ Tables Mosaïque</span>
+    <span class="pattern-band-item">◆ Fontaines & S9aya</span>
+    <span class="pattern-band-item">◆ Escaliers Zellige</span>
+    <span class="pattern-band-item">◆ Revêtements Muraux</span>
+    <span class="pattern-band-item">◆ Sur Mesure</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-bg" id="produits">
+  <div class="max-w">
+    <div style="text-align:center">
+      <div class="section-label">Nos produits</div>
+      <h2 class="section-title">Créations en Zellige Marocain</h2>
+      <p class="section-desc" style="margin:0 auto">Toutes nos pièces sont réalisées à la main par nos artisans à Fès. Prix variables selon taille et motif.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/hR3snFv6/temp-image-AA443298-F856-40-B1-B6-A7-BF37-F89-C6-A50.jpg" alt="Table mosaïque zellige" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Table Mosaïque</div>
+          <div class="product-name">Table Ronde Zellige</div>
+          <p class="product-desc">Table ronde en zellige marocain fait main. Motifs géométriques traditionnels. Disponible en différentes tailles et coloris.</p>
+          <div class="product-price-row">
+            <div class="product-price">À partir de 800 MAD<small>Taille standard Ø60cm</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/G438C5FR/temp-image-8740-B338-2-ED6-4-ED6-AA51-E3847-E0-E62-EA.jpg" alt="Table zellige colorée" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Table Mosaïque</div>
+          <div class="product-name">Table Rectangulaire</div>
+          <p class="product-desc">Table salon ou jardin en zellige coloré. Structure en fer forgé incluse. Résistante aux intempéries.</p>
+          <div class="product-price-row">
+            <div class="product-price">À partir de 1 400 MAD<small>120×60cm</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/FLTMcm4C/temp-image-37260-F09-EF50-4327-8-BD4-1956405-D73-CC.jpg" alt="Fontaine zellige marocaine" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Fontaines & S9aya</div>
+          <div class="product-name">Fontaine Murale Zellige</div>
+          <p class="product-desc">Fontaines et bassins en zellige marocain — intérieur ou extérieur. Fabrication artisanale, motifs sur mesure.</p>
+          <div class="product-price-row">
+            <div class="product-price">Sur devis<small>Selon dimensions</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/M51KVQ7z/temp-image-2-FD6-A7-DF-C0-C9-4-B7-F-A57-F-E8-C73566-FE36.jpg" alt="Escalier zellige bleu blanc" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Escaliers & Revêtements</div>
+          <div class="product-name">Contremarches Zellige</div>
+          <p class="product-desc">Contremarches et nez de marche en zellige. Motifs losanges bleu & blanc ou vert & blanc. Prix au mètre linéaire.</p>
+          <div class="product-price-row">
+            <div class="product-price">À partir de 350 MAD/ml<small>Pose incluse sur demande</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/mrzrXGhq/temp-image-F97-B821-D-E518-4-D91-95-E2-F71-E19-DD4-A9-C.jpg" alt="Revêtement zellige mural" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Revêtements Muraux</div>
+          <div class="product-name">Panneau Mural Zellige</div>
+          <p class="product-desc">Habillage mural en zellige marocain pour riad, salon, salle de bain. Motifs géométriques complexes, finition soignée.</p>
+          <div class="product-price-row">
+            <div class="product-price">À partir de 600 MAD/m²<small>Pose incluse sur demande</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/WpPwMMdy/temp-image-43-A58242-2594-4215-A676-2-EB61-A0-E9430.jpg" alt="Zellige décoration artisanale" class="product-img">
+        <div class="product-body">
+          <div class="product-category">Décoration & Mobilier</div>
+          <div class="product-name">Pièce sur Mesure</div>
+          <p class="product-desc">Toute création personnalisée selon vos souhaits — dimensions, coloris, motifs. Contactez-nous pour un devis gratuit.</p>
+          <div class="product-price-row">
+            <div class="product-price">Sur devis<small>Entièrement personnalisable</small></div>
+            <a href="#commander" class="btn-order">Commander</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-bg" id="galerie">
+  <div class="max-w">
+    <div style="text-align:center">
+      <div class="section-label" style="color:var(--gold-light)">Galerie</div>
+      <h2 class="section-title section-title-white">Nos Réalisations</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6);margin:0 auto">Chaque pièce est unique, fabriquée avec passion dans notre atelier de Fès.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="https://i.ibb.co/hR3snFv6/temp-image-AA443298-F856-40-B1-B6-A7-BF37-F89-C6-A50.jpg" alt="Réalisation zellige 1" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/G438C5FR/temp-image-8740-B338-2-ED6-4-ED6-AA51-E3847-E0-E62-EA.jpg" alt="Réalisation zellige 2" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/FLTMcm4C/temp-image-37260-F09-EF50-4327-8-BD4-1956405-D73-CC.jpg" alt="Réalisation zellige 3" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/M51KVQ7z/temp-image-2-FD6-A7-DF-C0-C9-4-B7-F-A57-F-E8-C73566-FE36.jpg" alt="Réalisation zellige 4" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="https://i.ibb.co/mrzrXGhq/temp-image-F97-B821-D-E518-4-D91-95-E2-F71-E19-DD4-A9-C.jpg" alt="Réalisation zellige 5" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/WpPwMMdy/temp-image-43-A58242-2594-4215-A676-2-EB61-A0-E9430.jpg" alt="Réalisation zellige 6" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/r2W3WmCd/temp-image-CB1-CE742-6878-4-B4-D-8-A39-1-C2030113585.jpg" alt="Réalisation zellige 7" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order-bg" id="commander">
+  <div class="max-w">
+    <div class="section-label">Commande sur mesure</div>
+    <h2 class="section-title">Créez Votre Pièce Unique</h2>
+    <div class="order-layout">
+      <div class="order-info">
+        <h3>Comment commander ?</h3>
+        <p>Remplissez le formulaire avec vos spécifications. Notre artisan vous recontactera sur WhatsApp sous 24h pour confirmer et discuter des détails.</p>
+        <ul class="info-list">
+          <li>Fabrication entièrement à la main dans notre atelier de Fès</li>
+          <li>Motifs et coloris personnalisables selon vos souhaits</li>
+          <li>Devis gratuit selon les dimensions souhaitées</li>
+          <li>Livraison dans tout le Maroc et à l'international</li>
+          <li>Délai de fabrication : 2 à 4 semaines selon la commande</li>
+          <li>Paiement à la livraison disponible (Maroc)</li>
+        </ul>
+        <div class="price-info">
+          <strong style="color:var(--cobalt);display:block;margin-bottom:0.5rem;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em">Prix indicatifs</strong>
+          Table ronde Ø50–60cm : <strong>800–1 200 MAD</strong><br>
+          Table ronde Ø80–100cm : <strong>1 500–2 500 MAD</strong><br>
+          Table rectangulaire 120×60 : <strong>1 400–2 000 MAD</strong><br>
+          Contremarches : <strong>350 MAD / mètre linéaire</strong><br>
+          Revêtement mural : <strong>600 MAD / m²</strong><br>
+          Fontaine / S9aya : <strong>Sur devis</strong>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-card">
+          <div class="form-title">Formulaire de commande</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom *</label>
+              <input type="text" id="fn" placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" id="ln" placeholder="Votre nom">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Téléphone / WhatsApp *</label>
+            <input type="tel" id="tel" placeholder="+212 6XX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label>Type de produit *</label>
+            <select id="type">
+              <option value="">— Choisir —</option>
+              <option>Table ronde</option>
+              <option>Table ovale</option>
+              <option>Table rectangulaire</option>
+              <option>Contremarches / Escalier</option>
+              <option>Fontaine / S9aya</option>
+              <option>Revêtement mural</option>
+              <option>Autre (préciser dans le message)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Dimensions (cm)</label>
+              <input type="text" id="dims" placeholder="ex: Ø70 ou 120×60">
+            </div>
+            <div class="form-group">
+              <label>Coloris souhaité</label>
+              <select id="color">
+                <option value="">— Choisir —</option>
+                <option>Bleu & Blanc (classique)</option>
+                <option>Vert & Blanc</option>
+                <option>Jaune Doré</option>
+                <option>Multicolore traditionnel</option>
+                <option>Autre / Sur mesure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message / Précisions</label>
+            <textarea id="msg" rows="3" placeholder="Motif souhaité, délai, lieu de livraison…"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitOrder()">Envoyer ma commande →</button>
+          <p class="form-note">Vous pouvez aussi nous contacter directement sur WhatsApp 📱</p>
+          <div class="success-msg" id="successMsg">✓ Merci ! Votre demande a été envoyée. Nous vous contactons sur WhatsApp sous 24h.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="location-bg" id="contact">
+  <div class="max-w">
+    <div class="section-label">Notre atelier</div>
+    <h2 class="section-title">Visitez-nous à Fès</h2>
+    <div class="location-layout">
+      <div>
+        <div class="location-map">
+          <iframe src="https://maps.google.com/maps?q=Avenue+Al+Wafae+Fes+Morocco&output=embed" allowfullscreen loading="lazy" title="Zellige Art Maroc - Fès"></iframe>
+        </div>
+      </div>
+      <div class="location-details">
+        <h3>Zellige Art Maroc</h3>
+        <div class="location-item">
+          <div class="location-icon">📍</div>
+          <div class="location-item-text">
+            <strong>Adresse</strong>
+            <span>Avenue Al Wafae, Fès, Maroc</span>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon">📱</div>
+          <div class="location-item-text">
+            <strong>WhatsApp</strong>
+            <span><a href="https://wa.me/message/M3NO66TUUGY7H1" target="_blank">Cliquez pour nous écrire directement</a></span>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon">📸</div>
+          <div class="location-item-text">
+            <strong>Instagram</strong>
+            <span><a href="https://www.instagram.com/zellige_artmaroc" target="_blank">@zellige_artmaroc</a></span>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon">🕐</div>
+          <div class="location-item-text">
+            <strong>Horaires</strong>
+            <span>Lundi – Samedi : 9h – 18h<br>Dimanche : sur rendez-vous</span>
+          </div>
+        </div>
+        <div class="social-buttons">
+          <a href="https://www.instagram.com/zellige_artmaroc?utm_source=qr" target="_blank" class="btn-social btn-instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://wa.me/message/M3NO66TUUGY7H1" target="_blank" class="btn-social btn-whatsapp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-brand">✦ Zellige Art Maroc</span>
+  <div class="footer-tagline">Artisanat authentique depuis Fès — زليج مغربي أصيل</div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">
+    Avenue Al Wafae, Fès, Maroc &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/zellige_artmaroc" style="color:rgba(255,255,255,0.4);text-decoration:none">@zellige_artmaroc</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/message/M3NO66TUUGY7H1" style="color:rgba(255,255,255,0.4);text-decoration:none">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+function submitOrder(){
+  var fn=document.getElementById('fn').value.trim();
+  var tel=document.getElementById('tel').value.trim();
+  var type=document.getElementById('type').value;
+  if(!fn||!tel||!type){alert('Merci de remplir : prénom, téléphone et type de produit.');return;}
+  var ln=document.getElementById('ln').value.trim();
+  var dims=document.getElementById('dims').value.trim();
+  var color=document.getElementById('color').value;
+  var msg=document.getElementById('msg').value.trim();
+  var text='Bonjour Zellige Art Maroc, je souhaite commander :\n';
+  text+='• Nom : '+(fn+' '+ln).trim()+'\n';
+  text+='• Tél : '+tel+'\n';
+  text+='• Produit : '+type+'\n';
+  if(dims) text+='• Dimensions : '+dims+'\n';
+  if(color) text+='• Coloris : '+color+'\n';
+  if(msg) text+='• Message : '+msg;
+  window.open('https://wa.me/message/M3NO66TUUGY7H1?text='+encodeURIComponent(text),'_blank');
+  document.getElementById('successMsg').style.display='block';
+}
+</script>
+</body>
+</html>
